@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: Java-DiscordRPC-1.0.jar GLTextureUtils-1.1.2.jar
+

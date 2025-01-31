@@ -1,0 +1,187 @@
+package com.lilyfena.NUBClient.impl.Modules;
+
+import com.lilyfena.NUBClient.api.CG.ContainerCareTaker.Icons;
+import com.lilyfena.NUBClient.impl.settings.BooleanSetting;
+import com.lilyfena.NUBClient.impl.settings.KeyBindSetting;
+import com.lilyfena.NUBClient.impl.settings.Setting;
+import com.lilyfena.NUBClient.DY;
+import com.lilyfena.NUBClient.mixins.AccessorClientWorld;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.PendingUpdateManager;
+import net.minecraft.client.network.SequencedPacketCreator;
+import net.minecraft.network.listener.ServerPlayPacketListener;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Mod {
+    private String name;
+    private String description;
+    private int key;
+    private boolean enabled;
+    public Category category;
+    public BooleanSetting isVisible = new BooleanSetting("isVisible", true);
+    public KeyBindSetting bind = new KeyBindSetting("key", 0);
+
+    private List<Setting> settings = new ArrayList<>();
+
+    public static MinecraftClient mc = MinecraftClient.getInstance();
+
+    public Mod(String name, String description, Category category) {
+        this.name = name;
+        this.description = description;
+        this.category = category;
+    }
+
+    protected void sendPacket(Packet<?> packet) {
+        mc.getNetworkHandler().sendPacket(packet);
+    }
+
+    /**
+     *
+     *
+     * @param p
+     */
+    public void sendSequencedPacket(final SequencedPacketCreator p)
+    {
+        if (mc.world != null)
+        {
+            PendingUpdateManager updater =
+                    ((AccessorClientWorld) mc.world).hookGetPendingUpdateManager().incrementSequence();
+            try
+            {
+                int i = updater.getSequence();
+                Packet<ServerPlayPacketListener> packet = p.predict(i);
+                sendPacket(packet);
+            }
+            catch (Throwable e)
+            {
+                e.printStackTrace();
+                if (updater != null)
+                {
+                    try
+                    {
+                        updater.close();
+                    }
+                    catch (Throwable e1)
+                    {
+                        e1.printStackTrace();
+                        e.addSuppressed(e1);
+                    }
+                }
+                throw e;
+            }
+            if (updater != null)
+            {
+                updater.close();
+            }
+        }
+    }
+
+    public List<Setting> getSettings() {
+        return settings;
+    }
+
+    public void addSetting(Setting setting) {
+        settings.add(setting);
+    }
+
+    public void addSettings(Setting... settings) {
+        for (Setting setting : settings) addSetting(setting);
+    }
+
+    public void toggle() {
+        this.enabled = !this.enabled;
+        if (enabled) {
+            onEnable();
+        } else {
+            onDisable();
+        }
+    }
+
+    public void onEnable() {
+        DY.EVENT_BUS.register(this);
+    }
+
+    public void onDisable() {
+        DY.EVENT_BUS.unregister(this);
+    }
+
+    public void onTick() {
+
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String s) {
+        this.name = s;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String s) {
+        this.description = s;
+    }
+
+    public int getKey() {
+        return this.key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+        if (enabled) onEnable();
+        else onDisable();
+    }
+
+    public void setQuietEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Category getCategory() {
+            return this.category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public enum Category {
+        FORTESTING("ForTesting", Icons.GEAR),
+        COMBAT("Combat", Icons.SWORDS),
+        CLIENT("Client", Icons.PERSON),
+        EXPLOITS("Exploits", Icons.CULT),
+        PLAYER("Player", Icons.JOYSTICK),
+        MOVEMENT("Movement", Icons.RUNNING),
+        RENDER("Render", Icons.EYE),
+        WORLD("World", Icons.BOXES);
+
+        public String name;
+        public Identifier icon;
+
+        private Category(String name, Identifier icon)
+        {
+            this.name = name;
+            this.icon = icon;
+        }
+    }
+
+
+    public static boolean nullCheck() {
+        return mc.player == null || mc.world == null;
+    }
+
+}
