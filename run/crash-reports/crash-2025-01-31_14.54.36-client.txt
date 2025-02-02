@@ -7,8 +7,8 @@ Description: mouseClicked event handler
 java.util.ConcurrentModificationException
 	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1013)
 	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:967)
-	at com.lilyfena.NUBClient.api.CG.ContainerCareTaker.ContainerCareTaker.mouseClicked(ContainerCareTaker.java:35)
-	at com.lilyfena.NUBClient.api.CG.CG.mouseClicked(CG.java:61)
+	at com.qteam.Quasar.api.CG.ContainerCareTaker.ContainerCareTaker.mouseClicked(ContainerCareTaker.java:35)
+	at com.qteam.Quasar.api.CG.CG.mouseClicked(CG.java:61)
 	at net.minecraft.client.Mouse.method_1611(Mouse.java:99)
 	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:414)
 	at net.minecraft.client.Mouse.onMouseButton(Mouse.java:99)
@@ -38,8 +38,8 @@ Thread: Render thread
 Stacktrace:
 	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1013)
 	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:967)
-	at com.lilyfena.NUBClient.api.CG.ContainerCareTaker.ContainerCareTaker.mouseClicked(ContainerCareTaker.java:35)
-	at com.lilyfena.NUBClient.api.CG.CG.mouseClicked(CG.java:61)
+	at com.qteam.Quasar.api.CG.ContainerCareTaker.ContainerCareTaker.mouseClicked(ContainerCareTaker.java:35)
+	at com.qteam.Quasar.api.CG.CG.mouseClicked(CG.java:61)
 	at net.minecraft.client.Mouse.method_1611(Mouse.java:99)
 	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:414)
 	at net.minecraft.client.Mouse.onMouseButton(Mouse.java:99)
@@ -54,7 +54,7 @@ Stacktrace:
 
 -- Affected screen --
 Details:
-	Screen name: com.lilyfena.NUBClient.api.CG.CG
+	Screen name: com.qteam.Quasar.api.CG.CG
 Stacktrace:
 	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:414)
 	at net.minecraft.client.Mouse.onMouseButton(Mouse.java:99)

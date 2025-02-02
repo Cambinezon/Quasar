@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "nub_client",
+  "id": "quasar",
   "version": "${version}",
-  "name": "NUB Client",
-  "description": "Nerd",
-  "authors": ["DoggLilY"],
+  "name": "Quasar Client",
+  "description": "Utility Client with useful modules for anarchy sevrers like 2B2T",
+  "authors": ["DoggLilY, dansiup44"],
   "contact": {
     "repo": ""
   },
   "license": "MIT",
-  "icon": "assets/nubclient/other/logo.png",
+  "icon": "assets/quasar/other/logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.lilyfena.NUBClient.DY"
+      "com.qteam.Quasar.Q"
     ]
   },
   "mixins": [
-    "nub_client.mixins.json"
+    "quasar.mixins.json"
   ],
-  "accessWidener" : "nubclient.accesswidener",
+  "accessWidener" : "quasar.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.9",
     "minecraft": "1.20.4"

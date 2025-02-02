@@ -5,7 +5,7 @@ Time: 2025-01-25 18:45:47
 Description: Unexpected error
 
 java.lang.ExceptionInInitializerError
-	at com.lilyfena.NUBClient.DY.onKeyPressed(DY.java:52)
+	at com.qteam.Quasar.Q.onKeyPressed(DY.java:52)
 	at net.minecraft.client.Keyboard.handler$zgf000$nub_client$onKey(Keyboard.java:606)
 	at net.minecraft.client.Keyboard.onKey(Keyboard.java)
 	at net.minecraft.client.Keyboard.method_22678(Keyboard.java:492)
@@ -25,9 +25,9 @@ java.lang.ExceptionInInitializerError
 	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
 	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
 Caused by: java.lang.NullPointerException: Cannot invoke "java.util.ArrayList.add(Object)" because "this.containerActions" is null
-	at com.lilyfena.NUBClient.api.CG.ContainerCareTaker.Container.Container.<init>(Container.java:27)
-	at com.lilyfena.NUBClient.api.CG.CG.<init>(CG.java:28)
-	at com.lilyfena.NUBClient.api.CG.CG.<clinit>(CG.java:22)
+	at com.qteam.Quasar.api.CG.ContainerCareTaker.Container.Container.<init>(Container.java:27)
+	at com.qteam.Quasar.api.CG.CG.<init>(CG.java:28)
+	at com.qteam.Quasar.api.CG.CG.<clinit>(CG.java:22)
 	... 19 more
 
 
@@ -37,7 +37,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Render thread
 Stacktrace:
-	at com.lilyfena.NUBClient.DY.onKeyPressed(DY.java:52)
+	at com.qteam.Quasar.Q.onKeyPressed(DY.java:52)
 	at net.minecraft.client.Keyboard.handler$zgf000$nub_client$onKey(Keyboard.java:606)
 	at net.minecraft.client.Keyboard.onKey(Keyboard.java)
 	at net.minecraft.client.Keyboard.method_22678(Keyboard.java:492)

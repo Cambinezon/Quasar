@@ -41,7 +41,7 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/nubclient.accesswidener")
+    accessWidenerPath = file("src/main/resources/quasar.accesswidener")
 }
 
 shadowJar {

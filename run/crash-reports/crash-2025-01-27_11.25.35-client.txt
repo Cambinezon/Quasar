@@ -16,10 +16,10 @@ java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to err
 	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
 	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
 Caused by: java.lang.NullPointerException: Cannot invoke "net.minecraft.resource.ResourceManager.getResource(net.minecraft.util.Identifier)" because the return value of "net.minecraft.client.MinecraftClient.getResourceManager()" is null
-	at com.lilyfena.NUBClient.api.Shader.ShaderLoader.readShaderSource(ShaderLoader.java:74)
-	at com.lilyfena.NUBClient.api.Shader.ShaderLoader.loadShader(ShaderLoader.java:54)
-	at com.lilyfena.NUBClient.api.Shader.ShaderLoader.init(ShaderLoader.java:27)
-	at com.lilyfena.NUBClient.DY.onInitialize(DY.java:51)
+	at com.qteam.Quasar.api.Shader.ShaderLoader.readShaderSource(ShaderLoader.java:74)
+	at com.qteam.Quasar.api.Shader.ShaderLoader.loadShader(ShaderLoader.java:54)
+	at com.qteam.Quasar.api.Shader.ShaderLoader.init(ShaderLoader.java:27)
+	at com.qteam.Quasar.Q.onInitialize(DY.java:51)
 	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:384)
 	... 7 more
 

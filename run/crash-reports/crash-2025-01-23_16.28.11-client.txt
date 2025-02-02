@@ -5,7 +5,7 @@ Time: 2025-01-23 16:28:11
 Description: Unexpected error
 
 java.lang.ExceptionInInitializerError
-	at com.lilyfena.NUBClient.DY.onKeyPressed(Dyglet.java:52)
+	at com.qteam.Quasar.Q.onKeyPressed(Dyglet.java:52)
 	at net.minecraft.client.Keyboard.handler$zba000$nub_client$onKey(Keyboard.java:606)
 	at net.minecraft.client.Keyboard.onKey(Keyboard.java)
 	at net.minecraft.client.Keyboard.method_22678(Keyboard.java:492)
@@ -24,9 +24,9 @@ java.lang.ExceptionInInitializerError
 	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
 	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
 	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
-Caused by: java.lang.NullPointerException: Cannot invoke "TAB.com.lilyfena.NUBClient.api.CG.TABC.addTab(String, java.util.ArrayList)" because "com.lilyfena.NUBClient.api.CG.CG.tabConnector" is null
-	at com.lilyfena.NUBClient.api.CG.CG.<init>(ClickGUI.java:24)
-	at com.lilyfena.NUBClient.api.CG.CG.<clinit>(ClickGUI.java:18)
+Caused by: java.lang.NullPointerException: Cannot invoke "TAB.com.qteam.Quasar.api.CG.TABC.addTab(String, java.util.ArrayList)" because "com.qteam.Quasar.api.CG.CG.tabConnector" is null
+	at com.qteam.Quasar.api.CG.CG.<init>(ClickGUI.java:24)
+	at com.qteam.Quasar.api.CG.CG.<clinit>(ClickGUI.java:18)
 	... 19 more
 
 
@@ -36,7 +36,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Render thread
 Stacktrace:
-	at com.lilyfena.NUBClient.DY.onKeyPressed(Dyglet.java:52)
+	at com.qteam.Quasar.Q.onKeyPressed(Dyglet.java:52)
 	at net.minecraft.client.Keyboard.handler$zba000$nub_client$onKey(Keyboard.java:606)
 	at net.minecraft.client.Keyboard.onKey(Keyboard.java)
 	at net.minecraft.client.Keyboard.method_22678(Keyboard.java:492)
