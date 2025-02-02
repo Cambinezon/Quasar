@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NUB_Client.main.iml" filepath="$PROJECT_DIR$/.idea/modules/NUB_Client.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NUB_Client.test.iml" filepath="$PROJECT_DIR$/.idea/modules/NUB_Client.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Quasar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Quasar.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Quasar.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Quasar.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/QuasarExperiments.main.iml" filepath="$PROJECT_DIR$/.idea/modules/QuasarExperiments.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/QuasarExperiments.test.iml" filepath="$PROJECT_DIR$/.idea/modules/QuasarExperiments.test.iml" />
+    </modules>
+  </component>
+</project>
