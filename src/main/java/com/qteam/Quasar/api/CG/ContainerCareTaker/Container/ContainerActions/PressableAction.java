@@ -70,7 +70,7 @@ public class PressableAction extends ContainerAction {
                 CG.INSTANCE.containerCareTaker.containers.add(
                         new Container(title, new ArrayList<>(moduleInformation.module.getSettings()
                                 .stream()
-                                .map(SettingInformation::make).toList()), 120, 20, 0, 0, true));
+                                .map(SettingInformation::make).toList()), 240, 20, 0, 0, true));
             }
         }
     }

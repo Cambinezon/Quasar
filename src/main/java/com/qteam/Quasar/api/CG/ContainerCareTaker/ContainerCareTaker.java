@@ -41,10 +41,18 @@ public class ContainerCareTaker implements Mc {
         }
     }
 
+    public void keyPressed(int key) {
+        if (containers.isEmpty()) return;
+
+        for (Container container : containers) {
+            if (container.show) container.keyPressed(key);
+        }
+    }
+
     public void setPositions(int space) {
         ArrayList<Container> var1000 = new ArrayList<>(containers
                 .stream()
-                .filter(i->i.show)
+                .filter(i -> i.show)
                 .toList());
 
         Window window = mc.getWindow();
@@ -52,13 +60,20 @@ public class ContainerCareTaker implements Mc {
         int h = window.getHeight();
 
         if (var1000.isEmpty()) return;
-        int spacing = (-var1000.stream().mapToInt(i->i.w).sum()+(-var1000.size()-1)*space) / 2;
+        int spacing = (-var1000.stream().mapToInt(i -> i.w).sum() + (-var1000.size() - 1) * space) / 2;
         for (Container container : var1000) {
-            container.y = -container.containerH/2+h/4;
-            container.x = spacing + w/4;
+            container.y = -container.containerH / 2 + h / 4;
+            container.x = spacing + w / 4;
             spacing += container.w + space;
         }
 
     }
 
+    public void mouseReleased(double mouseX, double mouseY, int button) {
+
+        for (Container container : containers) {
+            container.mouseReleased(mouseX, mouseY, button);
+        }
+
+    }
 }

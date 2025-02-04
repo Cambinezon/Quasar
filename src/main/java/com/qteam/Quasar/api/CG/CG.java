@@ -2,10 +2,13 @@ package com.qteam.Quasar.api.CG;
 
 import com.qteam.Quasar.Q;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.Container;
+import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.ContainerAction;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.CategoryInformation;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.TransferInformation;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.ContainerCareTaker;
 import com.qteam.Quasar.impl.Modules.Mod;
+import com.qteam.Quasar.impl.Modules.ModuleManager;
+import com.qteam.Quasar.impl.settings.Setting;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.DrawContext;
@@ -27,7 +30,7 @@ public class CG extends Screen {
     public final ContainerCareTaker containerCareTaker;
 
     private final Selection selection;
-    private float process = 0;
+    public float process = 0;
 
     private CG() {
         super(Text.literal("ClickGUI"));
@@ -52,6 +55,27 @@ public class CG extends Screen {
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         containerCareTaker.mouseClicked(mouseX, mouseY, button);
+        return true;
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        containerCareTaker.mouseReleased(mouseX, mouseY, button);
+        return true;
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        containerCareTaker.keyPressed(keyCode);
+        if (keyCode == 256) {
+            containerCareTaker.mouseReleased(0, 0, 0);
+            this.close();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean shouldCloseOnEsc() {
         return true;
     }
 

@@ -25,6 +25,10 @@ public class ContainerAction {
 
     }
 
+    public void keyPressed(int key) {
+
+    }
+
     public int getStartX() {
         return parent.x;
     }
@@ -51,5 +55,9 @@ public class ContainerAction {
 
     public boolean isHovered(double mouseX, double mouseY) {
         return getStartX()<mouseX&&getEndX()>mouseX&&getStartY()<mouseY&&getEndY()>mouseY;
+    }
+
+    public void mouseReleased(double mouseX, double mouseY, int button) {
+
     }
 }

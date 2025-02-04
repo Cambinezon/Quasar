@@ -11,8 +11,6 @@ public class ClickGuiModule extends Mod {
         bind.setKey(GLFW.GLFW_KEY_RIGHT_CONTROL);
         this.setKey(GLFW.GLFW_KEY_RIGHT_CONTROL);
 
-        addSettings(
-                isVisible
-        );
+        smartSettings(this);
     }
 }

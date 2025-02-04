@@ -22,8 +22,8 @@ public class Mod {
     private int key;
     private boolean enabled;
     public Category category;
-    public BooleanSetting isVisible = new BooleanSetting("isVisible", true);
-    public KeyBindSetting bind = new KeyBindSetting("key", 0);
+    public BooleanSetting isVisible;
+    public KeyBindSetting bind;
 
     private List<Setting> settings = new ArrayList<>();
 
@@ -33,6 +33,8 @@ public class Mod {
         this.name = name;
         this.description = description;
         this.category = category;
+        this.isVisible = new BooleanSetting("isVisible", this,true);
+        this.bind = new KeyBindSetting("key", this, 0);;
     }
 
     protected void sendPacket(Packet<?> packet) {
@@ -88,8 +90,14 @@ public class Mod {
         settings.add(setting);
     }
 
-    public void addSettings(Setting... settings) {
+    public void addSettings(Mod module, boolean b, boolean v, Setting... settings) {
         for (Setting setting : settings) addSetting(setting);
+        if (v) addSetting(isVisible);
+        if (b) addSetting(bind);
+    }
+
+    public void smartSettings(Mod module, Setting... settings) {
+        addSettings(module, true, true, settings);
     }
 
     public void toggle() {

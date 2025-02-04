@@ -7,7 +7,8 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:beach": "2025-01-31 15:10:07 +0100"
+      "minecraft:beach": "2025-01-31 15:10:07 +0100",
+      "minecraft:birch_forest": "2025-02-03 16:37:52 +0100"
     },
     "done": false
   },

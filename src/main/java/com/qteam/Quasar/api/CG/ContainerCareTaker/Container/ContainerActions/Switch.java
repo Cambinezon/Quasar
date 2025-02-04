@@ -10,7 +10,6 @@ public class Switch extends ContainerAction {
     public final BooleanSettingInformation booleanSettingInformation;
     public boolean enabled = false;
     private float process = 0;
-    private final int outline = 2;
 
     public Switch(BooleanSettingInformation transferInformation, Container parent, int offset) {
         super(transferInformation.title, transferInformation, parent, offset);
@@ -38,6 +37,6 @@ public class Switch extends ContainerAction {
     }
 
     public boolean isSwitchHovered(double mouseX, double mouseY) {
-        return getEndX()-24<mouseX&&mouseX<getEndX()-10&&getCenterY()-5<mouseY&&mouseY<getCenterY()+10;
+        return getEndX()-24<mouseX&&mouseX<getEndX()-4&&getCenterY()-10<mouseY&&mouseY<getCenterY()+10;
     }
 }

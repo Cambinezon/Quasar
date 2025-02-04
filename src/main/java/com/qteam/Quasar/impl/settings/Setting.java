@@ -2,6 +2,7 @@ package com.qteam.Quasar.impl.settings;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.qteam.Quasar.impl.Modules.Mod;
 
 import java.util.function.Supplier;
 
@@ -9,10 +10,12 @@ public class Setting {
 
     private String name;
     private boolean visible = true;
+    public Mod parent;
     public final Supplier<Boolean> bbbb;
 
-    public Setting(String name, Supplier<Boolean> bbbb) {
+    public Setting(String name, Mod parent, Supplier<Boolean> bbbb) {
         this.name = name;
+        this.parent = parent;
         this.bbbb = bbbb;
     }
 

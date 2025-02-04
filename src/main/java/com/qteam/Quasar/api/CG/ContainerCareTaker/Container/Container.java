@@ -1,14 +1,10 @@
 package com.qteam.Quasar.api.CG.ContainerCareTaker.Container;
 
 import com.qteam.Quasar.Q;
-import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.ContainerAction;
-import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.OpenableAction;
-import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.PressableAction;
-import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.Switch;
+import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.*;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.CategoryInformation;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.ModuleInformation;
-import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.SettingInformation.BooleanSettingInformation;
-import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.SettingInformation.SettingInformation;
+import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.SettingInformation.*;
 import com.qteam.Quasar.api.CG.ContainerCareTaker.Container.ContainerActions.TransferInformation.TransferInformation;
 import com.qteam.Quasar.api.Render.QR;
 import com.qteam.Quasar.impl.Mc;
@@ -38,6 +34,12 @@ public class Container implements Mc {
         } else {
             if (transferInformation instanceof BooleanSettingInformation) {
                 return new Switch((BooleanSettingInformation) transferInformation, this, setOffset);
+            } else if (transferInformation instanceof BindSettingInformation) {
+                return new Bind((BindSettingInformation) transferInformation, this, setOffset);
+            } else if (transferInformation instanceof NumberSettingInformation) {
+                return new Slider((NumberSettingInformation) transferInformation, this, setOffset);
+            } else if (transferInformation instanceof ModeSettingInformation) {
+                return new ModeAction((ModeSettingInformation) transferInformation, this, setOffset);
             }
         }
         return null;
@@ -46,7 +48,7 @@ public class Container implements Mc {
     public void render(int mouseX, int mouseY, float delta) {
         if (!show) return;
         if (!containerActions.isEmpty()) {
-            QR.Scissor(x, y-h, x + w, y + containerH);
+            QR.Scissor(x, y-h, x + w, y + containerH+1);
             QR.dr(x, y-h, x + w, y + containerH, Q.BGC.hashCode());
             QR.drawCenteredString(title, x+w/2, y-h/2, -1);
             if (closeButton != null) {
@@ -70,12 +72,26 @@ public class Container implements Mc {
         }
     }
 
+    public void keyPressed(int key) {
+        for (ContainerAction containerAction : containerActions) {
+            containerAction.keyPressed(key);
+        }
+    }
+
+
+
     public void updateContainerActions() {
         int setOffset = 0;
         if (containerActions.isEmpty()) return;
         for (ContainerAction containerAction : containerActions) {
             containerAction.offset = setOffset;
             setOffset += h;
+        }
+    }
+
+    public void mouseReleased(double mouseX, double mouseY, int button) {
+        for (ContainerAction containerAction : containerActions) {
+            containerAction.mouseReleased(mouseX, mouseY, button);
         }
     }
 }

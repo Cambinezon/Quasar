@@ -1,5 +1,7 @@
 package com.qteam.Quasar.impl.settings;
 
+import com.qteam.Quasar.impl.Modules.Mod;
+
 import java.util.function.Supplier;
 
 public class NumberSetting extends Setting {
@@ -9,8 +11,8 @@ public class NumberSetting extends Setting {
     private final String name;
 
 
-    public NumberSetting(String name, double min, double max, double defaultValue, double increment, Supplier<Boolean> bbbb) {
-        super(name, bbbb);
+    public NumberSetting(String name, Mod parent, double min, double max, double defaultValue, double increment, Supplier<Boolean> bbbb) {
+        super(name, parent, bbbb);
         this.name = name;
         this.min = min;
         this.max = max;
@@ -18,8 +20,8 @@ public class NumberSetting extends Setting {
         this.increment = increment;
     }
 
-    public NumberSetting(String name, double min, double max, double defaultValue, double increment) {
-        super(name, () -> true);
+    public NumberSetting(String name, Mod parent, double min, double max, double defaultValue, double increment) {
+        super(name, parent, () -> true);
         this.name = name;
         this.min = min;
         this.max = max;

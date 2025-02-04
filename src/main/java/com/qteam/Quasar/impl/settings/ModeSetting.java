@@ -1,5 +1,7 @@
 package com.qteam.Quasar.impl.settings;
 
+import com.qteam.Quasar.impl.Modules.Mod;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -11,16 +13,16 @@ public class ModeSetting<E> extends Setting {
     private int index;
     public String name;
 
-    public ModeSetting(String name, E defaultMode, Supplier<Boolean> bbbb, E... modes) {
-        super(name, bbbb);
+    public ModeSetting(String name, Mod parent, E defaultMode, Supplier<Boolean> bbbb, E... modes) {
+        super(name, parent, bbbb);
         this.name = name;
         this.modes = new ArrayList<>(List.of(modes));
         this.mode = defaultMode;
         this.index = this.modes.indexOf(defaultMode);
     }
 
-    public ModeSetting(String name, E defaultMode, E... modes) {
-        super(name, () -> true);
+    public ModeSetting(String name,Mod parent, E defaultMode, E... modes) {
+        super(name, parent, () -> true);
         this.name = name;
         this.modes = new ArrayList<>(List.of(modes));
         this.mode = defaultMode;

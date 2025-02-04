@@ -1,5 +1,7 @@
 package com.qteam.Quasar.impl.settings;
 
+import com.qteam.Quasar.impl.Modules.Mod;
+
 import java.util.function.Supplier;
 
 public class BooleanSetting extends Setting {
@@ -7,14 +9,14 @@ public class BooleanSetting extends Setting {
     public String name;
     private boolean enabled;
 
-    public BooleanSetting(String name, boolean defaultValue, Supplier<Boolean> bbbb) {
-        super(name, bbbb);
+    public BooleanSetting(String name, Mod parent, boolean defaultValue, Supplier<Boolean> bbbb) {
+        super(name,parent, bbbb);
         this.name = name;
         this.enabled = defaultValue;
     }
 
-    public BooleanSetting(String name, boolean defaultValue) {
-        super(name, () -> true);
+    public BooleanSetting(String name, Mod parent, boolean defaultValue) {
+        super(name, parent, () -> true);
         this.name = name;
         this.enabled = defaultValue;
     }

@@ -461,6 +461,10 @@ public final class QR implements Mc {
         guiGraphics.drawText(mc.textRenderer, text, x1 - mc.textRenderer.getWidth(text) / 2, y1 - mc.textRenderer.fontHeight /2, color, true);
     }
 
+    public static void drawEndedString(String text, int x, int y, int color) {
+        guiGraphics.drawText(mc.textRenderer, text, x - mc.textRenderer.getWidth(text), y, color, true);
+    }
+
     public static void drawCenteredString(String text, float x1, float y1, int color, float size) {
         guiGraphics.getMatrices().push();
         guiGraphics.getMatrices().scale(size, size, size);
